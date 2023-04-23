@@ -14,7 +14,7 @@ USERNAME=$(logname)
 
 ## Update and install the requirements
 apt update
-apt install git -your
+apt install git -y
 
 ## Install python3.11
 apt install python3.11 -y
@@ -53,14 +53,14 @@ curl -Lo minikube "https://storage.googleapis.com/minikube/releases/v1.29.0/mini
 install -o root -g root -m 0755 minikube /usr/local/bin/minikube
 
 ## Docker engine
-apt-get install ca-certificates curl gnupg -your
+apt-get install ca-certificates curl gnupg -y
 mkdir -m 0755 -p /etc/apt/keyrings
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
 
-sudo echo \ 
-	"deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
-	"$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | \ 
-	sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+echo \
+  "deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+  "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | \
+  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 	
 apt update
 
