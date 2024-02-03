@@ -22,7 +22,7 @@ apt install python3.11 -y
 # Download Forgeops 7.3.0
 git clone https://github.com/ForgeRock/forgeops.git
 cd forgeops
-git checkout release/7.3.0
+git checkout release/7.3-20230706
 
 chown -r $USERNAME:$USERNAME ../forgeops 
 
@@ -32,7 +32,7 @@ mkdir thirdparty
 cd thirdparty
 
 ## Kubectl
-curl -Lo kubectl "https://dl.k8s.io/release/v1.26.3/bin/linux/amd64/kubectl"
+curl -Lo kubectl "https://dl.k8s.io/release/v1.27.1/bin/linux/amd64/kubectl"
 install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
 
 ## Kubectx & Kubens
@@ -49,7 +49,7 @@ chmod 744 install_kustomize.sh
 install -o root -g root -m 0755 kustomize /usr/local/bin/kustomize
 
 ## Minikube
-curl -Lo minikube "https://storage.googleapis.com/minikube/releases/v1.29.0/minikube-linux-amd64"
+curl -Lo minikube "https://storage.googleapis.com/minikube/releases/v1.30.1/minikube-linux-amd64"
 install -o root -g root -m 0755 minikube /usr/local/bin/minikube
 
 ## Docker engine
@@ -64,7 +64,7 @@ echo \
 	
 apt update
 
-apt-get install docker-ce=5:20.10.23~3-0~ubuntu-jammy docker-ce-cli=5:20.10.23~3-0~ubuntu-jammy containerd.io docker-buildx-plugin docker-compose-plugin -y
+apt-get install docker-ce=5:20.10.24~3-0~ubuntu-jammy docker-ce-cli=5:20.10.24~3-0~ubuntu-jammy containerd.io docker-buildx-plugin docker-compose-plugin -y
 
 # Adding permissions
 usermod -aG docker $USERNAME
