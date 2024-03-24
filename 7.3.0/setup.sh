@@ -24,7 +24,7 @@ git clone https://github.com/ForgeRock/forgeops.git
 cd forgeops
 git checkout release/7.3-20230706
 
-chown -r $USERNAME:$USERNAME ../forgeops 
+chown -R $USERNAME:$USERNAME ../forgeops 
 
 ### Install Third-Party requirements
 cd ~
